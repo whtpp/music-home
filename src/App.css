@@ -37,3 +37,10 @@
     transform: rotate(360deg);
   }
 }
+.li-btn{
+  float: left;
+  padding-left: 10px;
+}
+.Btn{
+  border: 0px; 
+}
