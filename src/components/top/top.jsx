@@ -137,7 +137,9 @@ export default class Top extends Component {
                 backgroundColor:'#f0f5ff'
               }}
             >
-              <Sider className="site-layout-background" width={200}>
+              <Sider className="site-layout-background" style={{
+                height:'300px'
+              }} width={200}>
                 <ul
                   style={{
                     height: "100%",
@@ -242,7 +244,8 @@ export default class Top extends Component {
             style={{
               textAlign: "center",
               fontSize: "16px",
-              backgroundColor:'#f0f5ff'
+              backgroundColor:'#f0f5ff',
+              marginBottom:'100px'
             }}
           >
             剩速度回应，向银河逼近
@@ -250,7 +253,7 @@ export default class Top extends Component {
         </Layout>
         <div style={{
           backgroundColor: "rgb(0, 21, 41)",
-          position:'absolute',
+          position:'fixed',
           bottom:'0',
           width:'100%',
           height:'90px'
@@ -269,7 +272,6 @@ export default class Top extends Component {
                 height: "40px",
               }}
               controls
-              autoplay
               loop
               src=""
             ></audio>
