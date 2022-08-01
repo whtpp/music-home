@@ -18,17 +18,17 @@ export default class Rec extends Component {
     };
   }
   componentDidMount() {
-    this.getBannersData();
-    this.getRecommendListData();
-    this.getNewSongData();
-    this.getMVData();
+    // this.getBannersData();
+    // this.getRecommendListData();
+    // this.getNewSongData();
+    // this.getMVData();
   }
 
   async getBannersData() {
     const res = await getBannerList();
     console.log(res.data);
     if (res.data.code === 200) {
-      // alert('轮播图数据请求成功！')
+      alert("轮播图数据请求成功！");
 
       this.setState({
         banners: res.data.banners,
@@ -40,7 +40,7 @@ export default class Rec extends Component {
     const res = await getRecommendlist();
 
     if (res.data.code === 200) {
-      // alert('推荐歌单数据请求成功！')
+      alert("推荐歌单数据请求成功！");
       this.setState({
         recommendList: res.data.result,
       });
@@ -51,7 +51,7 @@ export default class Rec extends Component {
     const res = await getNewsong();
 
     if (res.data.code === 200) {
-      // alert('最新音乐数据请求成功！')
+      alert("最新音乐数据请求成功！");
       this.setState({
         newsong: res.data.result,
       });
@@ -62,7 +62,7 @@ export default class Rec extends Component {
     const res = await getMv();
 
     if (res.data.code === 200) {
-      // alert('最新mv数据请求成功！')
+      alert("最新mv数据请求成功！");
       this.setState({
         mv: res.data.result,
       });
@@ -171,43 +171,43 @@ export default class Rec extends Component {
 
         {mv.map((item) => {
           return (
-              <div
-                className="site-card-border-less-wrapper"
+            <div
+              className="site-card-border-less-wrapper"
+              style={{
+                marginBottom: "30px",
+                // padding:'20px 30px',
+                background: "#ececec",
+              }}
+            >
+              <Card
+                title={item.playCount}
+                bordered={false}
                 style={{
-                  marginBottom: "30px",
-                  // padding:'20px 30px',
-                  background: "#ececec",
+                  width: "40%",
+                  height: "100%",
+                  // display: "flex",
+                  marginRight: "50px",
                 }}
               >
-                <Card
-                  title={item.playCount}
-                  bordered={false}
+                <p>{item.copywriter}</p>
+                <p>{item.artistName}</p>
+              </Card>
+              <div
+                style={{
+                  display: "inline-block",
+                  width: "50%",
+                  height: "100%",
+                }}
+              >
+                <img
                   style={{
-                    width: "40%",
-                    height:'100%',
-                    // display: "flex",
-                    marginRight:'50px'
+                    width: "100%",
                   }}
-                >
-                  <p>{item.copywriter}</p>
-                  <p>{item.artistName}</p>
-                </Card>
-                <div
-                  style={{
-                    display: "inline-block",
-                    width: "50%",
-                    height: "100%",
-                  }}
-                >
-                  <img
-                    style={{
-                      width: "100%",
-                    }}
-                    src={item.picUrl}
-                    alt=""
-                  />
-                </div>
+                  src={item.picUrl}
+                  alt=""
+                />
               </div>
+            </div>
           );
         })}
       </div>
